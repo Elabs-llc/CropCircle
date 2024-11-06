@@ -1,6 +1,8 @@
-### Product Description: **Farmers Marketplace Backend System**
+# Farmers Marketplace Backend System
 
-#### Overview
+## Product Description
+
+### Overview
 
 The Farmers Marketplace Backend System is designed to power a marketplace platform where verified farmers can list agricultural products, and customers can browse, purchase, and receive products directly from farmers. The backend system provides robust authentication, product management, order fulfillment, and notification services to ensure smooth and secure interactions among farmers, customers, and administrators. This backend also supports the admin team's oversight in ensuring quality and compliance within the marketplace, maintaining a high standard of service and trust.
 
