@@ -68,7 +68,7 @@ The backend system is built using scalable, secure, and performance-optimized te
 - **Backend Framework**: Django for a robust server-side environment.
 - **Database**: MySQL for structured data and MongoDB for flexible data storage if needed.
 - **Authentication**: JSON Web Tokens (JWT) for secure user sessions.
-- **Notifications**: Push notifications or email services, integrated via services like Firebase or AWS SES.
+- **Notifications**: Push notifications or email services, integrated via services like Firebase.
 
 #### Benefits and Value Proposition
 
