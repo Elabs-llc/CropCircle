@@ -13,12 +13,15 @@ import CustomerLayout from './pages/Customer/CustomerLayout';
 import CartPage from './pages/Customer/CartPage';
 import OrderTracking from './pages/Customer/OrderTracking';
 import Homepage from './pages/Customer/Homepage';
+import CustomerLogin from './auth/Customer/CustomerLogin';
+import AdminLogin from './auth/Admin/AdminLogin';
+import Home from './pages';
 
 function App() {
   return (
     <Router>
       <Routes>
-        
+        <Route path='/' element={<Home/>}/>
         <Route
           path="/farmer/*"
           element={
@@ -27,6 +30,8 @@ function App() {
                 <Route path="overview" element={<Overview />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="products" element={<Products />} />
+                <Route path="login" element={<CustomerLogin />} />
+
               </Routes>
             </FarmerLayout>
           }
@@ -39,6 +44,9 @@ function App() {
                 <Route path="feedback" element={<Feedback />} />
                 <Route path="flagged-items" element={<FlaggedItems />} />
                 <Route path="verification-queue" element={<VerificationQueue />} />
+
+                <Route path="login" element={<AdminLogin/>} />
+
               </Routes>
             </AdminLayout>
           }
@@ -51,6 +59,7 @@ function App() {
                 <Route path="homepage" element={<Homepage />} />
                 <Route path="cartitems" element={<CartPage />} />
                 <Route path="orders" element={<OrderTracking />} />
+                <Route path="login" element={<CustomerLogin />} />
               </Routes>
             </CustomerLayout>
           }
