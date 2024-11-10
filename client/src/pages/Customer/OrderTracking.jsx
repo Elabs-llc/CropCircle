@@ -38,13 +38,13 @@ const OrderTracking = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Simulate fetching farmer produce orders from an API or database
+    // simulate fetching farmer produce from database
     setOrders(ordersData);
   }, []);
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center text-green-600 mb-6">Order Tracking for Farmer Produce</h1>
+      <h1 className="text-3xl font-bold text-center text-green-600 mb-6">Track Your Order</h1>
       <div>
         {orders.length === 0 ? (
           <p className="text-center text-gray-500">Loading orders...</p>
