@@ -15,13 +15,29 @@ import OrderTracking from './pages/Customer/OrderTracking';
 import Homepage from './pages/Customer/Homepage';
 import CustomerLogin from './auth/Customer/CustomerLogin';
 import AdminLogin from './auth/Admin/AdminLogin';
+import FarmerLogin from './auth/Farmer/FarmerLogin';
+import FarmerSignUp from './auth/Farmer/FarmerSignUp';
 import Home from './pages';
+import CustomerSignUp from './auth/Customer/CustomerSignUp';
 
 function App() {
   return (
     <Router>
       <Routes>
+
+
         <Route path='/' element={<Home/>}/>
+
+
+        <Route path="/customer/login" element={<CustomerLogin />} />
+        <Route path="/customer/signup" element={<CustomerSignUp />} />
+
+        <Route path="/admin/login" element={<AdminLogin/>} />
+
+        <Route path="/farmer/login" element={<FarmerLogin/>} />
+        <Route path="/farmer/signup" element={<FarmerSignUp/>} />
+
+
         <Route
           path="/farmer/*"
           element={
@@ -30,12 +46,11 @@ function App() {
                 <Route path="overview" element={<Overview />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="products" element={<Products />} />
-                <Route path="login" element={<CustomerLogin />} />
-
               </Routes>
             </FarmerLayout>
           }
         />
+        
         <Route
           path="/admin/*"
           element={
@@ -44,13 +59,11 @@ function App() {
                 <Route path="feedback" element={<Feedback />} />
                 <Route path="flagged-items" element={<FlaggedItems />} />
                 <Route path="verification-queue" element={<VerificationQueue />} />
-
-                <Route path="login" element={<AdminLogin/>} />
-
               </Routes>
             </AdminLayout>
           }
         />
+          
         <Route
           path="/customer/*"
           element={
@@ -59,7 +72,7 @@ function App() {
                 <Route path="homepage" element={<Homepage />} />
                 <Route path="cartitems" element={<CartPage />} />
                 <Route path="orders" element={<OrderTracking />} />
-                <Route path="login" element={<CustomerLogin />} />
+                
               </Routes>
             </CustomerLayout>
           }
