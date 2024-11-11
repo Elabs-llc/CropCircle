@@ -1,10 +1,10 @@
-// App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Overview from './pages/Farmer/Overview';
 import Orders from './pages/Farmer/Orders';
 import Products from './pages/Farmer/Products';
 import FarmerLayout from './pages/Farmer/FarmerLayout';
+import AddProductForm from './components/Farmer/AddProductForm';
 import Feedback from './pages/Admin/Feedback';
 import FlaggedItems from './pages/Admin/FlaggedItems';
 import VerificationQueue from './pages/Admin/VerificationQueue';
@@ -20,10 +20,12 @@ import FarmerSignUp from './auth/Farmer/FarmerSignUp';
 import Home from './pages';
 import CustomerSignUp from './auth/Customer/CustomerSignUp';
 
+
 function App() {
   return (
     <Router>
       <Routes>
+
 
 
         <Route path='/' element={<Home/>}/>
@@ -39,16 +41,12 @@ function App() {
 
 
         <Route
+
           path="/farmer/*"
           element={
-            <FarmerLayout>
-              <Routes>
-                <Route path="overview" element={<Overview />} />
-                <Route path="orders" element={<Orders />} />
-                <Route path="products" element={<Products />} />
-              </Routes>
-            </FarmerLayout>
+            <FarmerLayout />
           }
+
         />
         
         <Route
