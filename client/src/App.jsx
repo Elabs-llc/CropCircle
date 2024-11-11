@@ -19,6 +19,7 @@ import FarmerLogin from './auth/Farmer/FarmerLogin';
 import FarmerSignUp from './auth/Farmer/FarmerSignUp';
 import Home from './pages';
 import CustomerSignUp from './auth/Customer/CustomerSignUp';
+import ProductList from './components/Farmer/ProductList';
 
 
 function App() {
@@ -44,7 +45,11 @@ function App() {
 
           path="/farmer/*"
           element={
-            <FarmerLayout />
+            <FarmerLayout>
+              <Routes>
+              <Route path="product" element={<Products />} />
+              </Routes>
+            </FarmerLayout>
           }
 
         />
