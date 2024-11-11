@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+// import "./signup.css";
 const CustomerSignUp = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -41,7 +41,7 @@ const CustomerSignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setOtpSent(true); // Simulate OTP sending
+      setOtpSent(true); // SIMULATE OTP SENT
       alert("OTP sent for email verification");
       // Implement OTP or email verification here
     }
@@ -49,17 +49,26 @@ const CustomerSignUp = () => {
 
   return (
     <>
-      <div className="grid grid-cols-6 gap-4">
-        <div className=" col-start-1 col-span-4 flex justify-center items-center min-h-screen bg-gray-100 ">
-          <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-6 text-center ">
-              Sign Up Today!
+      <div className="bg-[url('/assets/bg-img.jpg')] bg-cover bg-center h-screen">
+        <div className="grid grid-cols-6  flex justify-center items-center min-h-screen bg-gray-100 ">
+          <div className=" col-start-2 col-span-4 bg-white p-8 rounded-r-3xl shadow-md w-full max-w-md">
+            <h2 className="text-2xl font-bold mb-6 text-center text-green-600 ">
+              CUSTOMER SIGN UP!
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <p className="text-center text-lg my-2 font-semibold">
+              welcome to CropCircle
+            </p>
+
+            <span className="text-center text-sm text-gray-600 ">
+              Join thousands of users who have already signed up
+            </span>
+
+            {/* FORM SECTION */}
+            <form onSubmit={handleSubmit} className="space-y-4  ">
               <div>
                 <label
                   htmlFor="fullName"
-                  className="block text-sm font-medium text-gray-700"
+                  className=" mt-3 block text-sm font-medium text-gray-700"
                 >
                   Full Name
                 </label>
@@ -155,26 +164,9 @@ const CustomerSignUp = () => {
                 />
               </div>
 
-              <div>
-                <label
-                  htmlFor="address"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Shipping Address (Optional)
-                </label>
-                <textarea
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                  rows="3"
-                />
-              </div>
-
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+                className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
               >
                 Sign Up
               </button>
