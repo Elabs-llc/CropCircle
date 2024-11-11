@@ -133,10 +133,10 @@ const products = [
     },
     {
         image: ripeplantain,
-        name: "Avocado",
+        name: "Ripe Plantain",
         price: 60,
         quantity: "3 pieces per bag",
-        description: "Our Avocados are grown in local farms, contains alot of nutrients and tastes great.",
+        description: "Our Ripe Plantain are grown in local farms, contains alot of nutrients and tastes great.",
         category:  "Fruites"
     },
   
