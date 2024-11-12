@@ -6,6 +6,12 @@ const AdminLogin = () => {
     email: "",
     password: "",
   }
+  const dummyData = {
+    email: "admin@admin.com",
+    password: "123",
+  }
+
+  const [error, setError] = React.useState("");
 
   const [form, setForm] = React.useState(formData);
   function HandleChange(e){
@@ -15,7 +21,26 @@ const AdminLogin = () => {
 
   function HandleSubmit(e){
     e.preventDefault();
-    e.target.reset();
+    if(form.email === "" || form.password === ""){
+      alert("Please fill the form")
+      return;
+    }
+    try{
+       const response = fetch("http://localhost:8000/api/admin/login", form)
+       if(response.status === 200){
+         alert("Login Successful")
+         window.location.href = "/admin/dashboard"
+         return;
+       }
+       else{
+         alert("Invalid Credentials")
+         return;
+       }
+    }
+    catch(error){
+      setError(error);
+    }
+  
     console.log("Results",form);
   }
   return (
