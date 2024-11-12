@@ -5,7 +5,10 @@ import { Search, Bell,ChevronDown, ChevronUp,Home, User,ShoppingCart, HelpCircle
 
 const CustomerLayout = ({children}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [Notification, setNotification] = useState(1);
+  const [cartcount, setCartCount] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -17,7 +20,14 @@ const CustomerLayout = ({children}) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
-        
+  useEffect(() =>{
+    const updateCartCount = () => {
+      setCartCount(3);
+    };
+    updateCartCount();
+  ``}, []);
+
+  const handleSearch = (e) => {e.preventDefault(); console.log('Searching...', searchQuery);};       
   const handleNotification = () => {setNotification(prev => prev + 1)};
 
   const menuItems = [
@@ -34,29 +44,43 @@ const CustomerLayout = ({children}) => {
       <header className='bg-white border-b border-gray-200 sticky top-0 z-50'>
         <div className='w-full bg-green-200 border-b'>
           <div className='max-w-7xl mx-auto px-0 py-2'>
-            <div className='max-w-7xl max-auto sm:px-0 flex items-center justify-between'>
+            <div className='flex items-center justify-between'>
 
               {/*logo */}
               <div className='flex items-center pr-10 '>
-              < a href='Homepage'><button className='flex items-center gap-2 p-2 hover:bg-green-300 rounded-lg transition-colors' href='Homepage'>
+              < a href='homepage'><button className='flex items-center gap-2 p-2 hover:bg-green-300 rounded-lg transition-colors' href='Homepage'>
                 <div className='w-10 h-10 bg-green-100 rounded-full flex items-center justify-center'>
-                  <span className='text-green-700 text-2xl items-center'>CC</span>
+                  <span className='text-green-700 text-2xl'>CC</span>
                 </div>
                   <span className='text-xl font-semibold text-gray-700 hidden sm:block'>CropCircle</span>
                 </button></a>
               </div>
               {/*Search Bar */}
-              <div className='flex-1 max-w-3xl mx-4 ml-auto sm:w-auto'>
-                <div className='flex items-center bg-gray-50 border border-gray-300 rounded-xl p-2 w-full sm:w-auto'>
-                  <input type="text" placeholder='Search for products, customers, etc..' className='w-full bg-transparent border-none p-2 text-gray-950 text-sm focus:outline-none'/>
-                <button className="text-zinc-950 ml-1">
-                  <Search size={20}/>
-                </button>
-                </div>
-              </div>
+              {isSearchOpen &&(
+                <form onSubmit={handleSearch} className='flex-1 max-w-3xl mx-4 sm:w-auto'>
+                  <div className='flex items-center bg-gray-50 border border-gray-300 rounded-xl sm:w-auto'>
+                    <input 
+                      type="text"
+                      value={searchQuery} 
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder='Search for products, customers, etc..' 
+                      className='ml-2 w-full bg-transparent border-none text-gray-950 text-sm focus:outline-none'
+                    />
+                  <button type='submit' className='px-8 py-2 bg-green-300 rounded-r-md hover:bg-green-400 sm:px-auto'>
+                    Search 
+                  </button>
+                  </div>
+                </form>
+              )}
 
               {/*Right Section of the navigation Bar*/}
-              <div className='flex items-right gap-4 ml--7 mr-auto pr-8'>
+              <div className='flex items-right gap-4'>
+                <button 
+                  onClick={() => setIsSearchOpen(!isSearchOpen)} 
+                  className='p-2 hover:bg-green-300 rounded-lg transition-colors '>
+                  <Search className='w-6 h-6 text-gray-700'/>
+                </button> 
+
                 <button className='relative p-2 text-gray-600 hover:bg-green-300 rounded-s-md transition-colors'>
                   <Bell className='w-5 h-5 text-gray-700' />
                   {Notification > 0 && (
@@ -64,15 +88,18 @@ const CustomerLayout = ({children}) => {
                        {Notification} 
                     </span>
                   )}
-                </button>  
+                </button>
+                
                 <button className='relative p-2 text-gray-600 hover:bg-green-300 rounded-s-md transition-colors'>
-                <a href='Cartitems'><ShoppingCart className='w-5 h-5 text-gray-700' />
-                  {Notification > 0 && (
-                    <span className='absolute top-0 right-0 transform translate-x-1/3 -translate-y-1/3 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center'>
-                       {Notification} 
-                    </span>
-                  )}</a> 
+                   <a href='Cartitems'><ShoppingCart className='w-5 h-5 text-gray-700' /></a>
+                   {cartcount > 0 && (
+                      <span className='absolute top-0 right-0 transform translate-x-1/3 -translate-y-1/3 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center'>
+                         {cartcount} 
+                      </span>
+                   )}
+                
                 </button> 
+                 
                 {/* User Menu*/}  
                 <div className='relative' ref={dropdownRef}>
                   <button onClick={() => setIsOpen(!isOpen)}
@@ -133,8 +160,8 @@ const CustomerLayout = ({children}) => {
           <div className=' flex justify-between items-center w-full px-8 -mx-4'>
             <div>
               <h2 className='text-lg font-bold text-gray-800'> Contacts</h2>
-              <p className='text-gray-600'>Phone: 123-456-7890</p>
-              <p className='text-gray-600'>Email: 123@example.com</p>
+              <p className='text-gray-600'>Phone: 123-456-7890</p><br/>
+              <p className='text-gray-600'>Email: 123@example.com</p>              
             </div>
             <div>
               <h2 className='text-lg font-bold text-gray-800'>Site Links</h2>
