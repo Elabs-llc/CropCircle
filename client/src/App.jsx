@@ -27,19 +27,15 @@ function App() {
     <Router>
       <Routes>
 
-
-
-        <Route path='/' element={<Home/>}/>
-
+        <Route path='/' element={<Home />} />
 
         <Route path="/customer/login" element={<CustomerLogin />} />
         <Route path="/customer/signup" element={<CustomerSignUp />} />
 
-        <Route path="/admin/login" element={<AdminLogin/>} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
-        <Route path="/farmer/login" element={<FarmerLogin/>} />
-        <Route path="/farmer/signup" element={<FarmerSignUp/>} />
-
+        <Route path="/farmer/login" element={<FarmerLogin />} />
+        <Route path="/farmer/signup" element={<FarmerSignUp />} />
 
         <Route
 
@@ -47,13 +43,15 @@ function App() {
           element={
             <FarmerLayout>
               <Routes>
-              <Route path="product" element={<Products />} />
+                <Route path="product" element={<Products />} />
+                <Route path="orders" element={<Orders />} />
+                <Route path="overview" element={<Overview />} />
               </Routes>
             </FarmerLayout>
           }
 
         />
-        
+
         <Route
           path="/admin/*"
           element={
@@ -66,7 +64,7 @@ function App() {
             </AdminLayout>
           }
         />
-          
+
         <Route
           path="/customer/*"
           element={
@@ -75,7 +73,7 @@ function App() {
                 <Route path="homepage" element={<Homepage />} />
                 <Route path="cartitems" element={<CartPage />} />
                 <Route path="orders" element={<OrderTracking />} />
-                
+
               </Routes>
             </CustomerLayout>
           }
