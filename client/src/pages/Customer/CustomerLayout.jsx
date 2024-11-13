@@ -40,31 +40,31 @@ const CustomerLayout = ({children}) => {
   ];
   
   return (
-    <div className='min-h-screen flex flex-col bg-gray-50'> 
-      <header className='bg-white border-b border-gray-200 sticky top-0 z-50'>
+    <div className='flex flex-col min-h-screen bg-gray-50'> 
+      <header className='sticky top-0 z-50 bg-white border-b border-gray-200'>
         <div className='w-full bg-green-200 border-b'>
-          <div className='max-w-7xl mx-auto px-0 py-2'>
+          <div className='px-0 py-2 mx-auto max-w-7xl'>
             <div className='flex items-center justify-between'>
 
               {/*logo */}
               <div className='flex items-center pr-10 '>
-              < a href='homepage'><button className='flex items-center gap-2 p-2 hover:bg-green-300 rounded-lg transition-colors' href='Homepage'>
-                <div className='w-10 h-10 bg-green-100 rounded-full flex items-center justify-center'>
-                  <span className='text-green-700 text-2xl'>CC</span>
+              < a href='homepage'><button className='flex items-center gap-2 p-2 transition-colors rounded-lg hover:bg-green-300' href='Homepage'>
+                <div className='flex items-center justify-center w-10 h-10 bg-green-100 rounded-full'>
+                  <span className='text-2xl text-green-700'>CC</span>
                 </div>
-                  <span className='text-xl font-semibold text-gray-700 hidden sm:block'>CropCircle</span>
+                  <span className='hidden text-xl font-semibold text-gray-700 sm:block'>CropCircle</span>
                 </button></a>
               </div>
               {/*Search Bar */}
               {isSearchOpen &&(
                 <form onSubmit={handleSearch} className='flex-1 max-w-3xl mx-4 sm:w-auto'>
-                  <div className='flex items-center bg-gray-50 border border-gray-300 rounded-xl sm:w-auto'>
+                  <div className='flex items-center border border-gray-300 bg-gray-50 rounded-xl sm:w-auto'>
                     <input 
                       type="text"
                       value={searchQuery} 
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder='Search for products, customers, etc..' 
-                      className='ml-2 w-full bg-transparent border-none text-gray-950 text-sm focus:outline-none'
+                      className='w-full ml-2 text-sm bg-transparent border-none text-gray-950 focus:outline-none'
                     />
                   <button type='submit' className='px-8 py-2 bg-green-300 rounded-r-md hover:bg-green-400 sm:px-auto'>
                     Search 
@@ -74,26 +74,26 @@ const CustomerLayout = ({children}) => {
               )}
 
               {/*Right Section of the navigation Bar*/}
-              <div className='flex items-right gap-4'>
+              <div className='flex gap-4 items-right'>
                 <button 
                   onClick={() => setIsSearchOpen(!isSearchOpen)} 
-                  className='p-2 hover:bg-green-300 rounded-lg transition-colors '>
+                  className='p-2 transition-colors rounded-lg hover:bg-green-300 '>
                   <Search className='w-6 h-6 text-gray-700'/>
                 </button> 
 
-                <button className='relative p-2 text-gray-600 hover:bg-green-300 rounded-s-md transition-colors'>
+                <button className='relative p-2 text-gray-600 transition-colors hover:bg-green-300 rounded-s-md'>
                   <Bell className='w-5 h-5 text-gray-700' />
                   {Notification > 0 && (
-                    <span className='absolute top-0 right-0 transform translate-x-1/3 -translate-y-1/3 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center'>
+                    <span className='absolute top-0 right-0 flex items-center justify-center w-5 h-5 text-xs font-bold text-white transform bg-red-500 rounded-full translate-x-1/3 -translate-y-1/3'>
                        {Notification} 
                     </span>
                   )}
                 </button>
                 
-                <button className='relative p-2 text-gray-600 hover:bg-green-300 rounded-s-md transition-colors'>
+                <button className='relative p-2 text-gray-600 transition-colors hover:bg-green-300 rounded-s-md'>
                    <a href='Cartitems'><ShoppingCart className='w-5 h-5 text-gray-700' /></a>
                    {cartcount > 0 && (
-                      <span className='absolute top-0 right-0 transform translate-x-1/3 -translate-y-1/3 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center'>
+                      <span className='absolute top-0 right-0 flex items-center justify-center w-5 h-5 text-xs font-bold text-white transform bg-red-500 rounded-full translate-x-1/3 -translate-y-1/3'>
                          {cartcount} 
                       </span>
                    )}
@@ -103,17 +103,17 @@ const CustomerLayout = ({children}) => {
                 {/* User Menu*/}  
                 <div className='relative' ref={dropdownRef}>
                   <button onClick={() => setIsOpen(!isOpen)}
-                    className='flex items-center gap-2 p-2 hover:bg-green-300 rounded-lg transition-colors'
+                    className='flex items-center gap-2 p-2 transition-colors rounded-lg hover:bg-green-300'
                     >
-                      <div className='w-8 h-8 bg-green-100 rounded-full flex items-center justify-center'>
+                      <div className='flex items-center justify-center w-8 h-8 bg-green-100 rounded-full'>
                         <span className='text-green-700'></span>
                         <UserCheck/>
                       </div>
-                      <span className='text-gray-700 font-medium hidden sm:block' >Hi, Ideation Axis</span>
+                      <span className='hidden font-medium text-gray-700 sm:block' >Hi, Ideation Axis</span>
                       {isOpen ? (
-                        <ChevronUp className='w-6 h-6 text-gray-700 hidden sm:block' />)
+                        <ChevronUp className='hidden w-6 h-6 text-gray-700 sm:block' />)
                       : (
-                        <ChevronDown className='w-6 h-6 text-gray-700 hidden sm:block' />)  
+                        <ChevronDown className='hidden w-6 h-6 text-gray-700 sm:block' />)  
                       }
                   </button>
                   {/*Dropdown Menu*/}
@@ -136,7 +136,7 @@ const CustomerLayout = ({children}) => {
                             ${item.className || ''}
                           `}
                         >
-                          <item.Icon className='w-5 h-5 text-gray-600 mr-2' />
+                          <item.Icon className='w-5 h-5 mr-2 text-gray-600' />
                           {item.label}
                         </a>
                       ))}
@@ -150,14 +150,14 @@ const CustomerLayout = ({children}) => {
       </header>
 
       <main className='flex-1'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
+        <div className='px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8'>
           {children}
         </div>        
       </main>
       
-      <footer className='max-w border-t border-gray-200'>
+      <footer className='border-t border-gray-200 max-w'>
         <div className='mx-auto'>
-          <div className=' flex justify-between items-center w-full px-8 -mx-4'>
+          <div className='flex items-center justify-between w-full px-8 -mx-4 '>
             <div>
               <h2 className='text-lg font-bold text-gray-800'> Contacts</h2>
               <p className='text-gray-600'>Phone: 123-456-7890</p><br/>
@@ -172,8 +172,8 @@ const CustomerLayout = ({children}) => {
               </ul>
             </div>
           </div>
-          <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6'> 
-            <p className='text-center text-gray-600 font-bold'>
+          <div className='px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8'> 
+            <p className='font-bold text-center text-gray-600'>
               © {new Date().getFullYear()} CropCircle | All Rights Reserved
             </p>
           </div>
