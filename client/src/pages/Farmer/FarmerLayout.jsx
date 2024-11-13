@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 const FarmerLayout = ({ children }) => {
     return (
-        <div>{children}</div>
-    )
-}
+        <div> {children}</div>
+    );
+};
 
-export default FarmerLayout
+export default FarmerLayout;
