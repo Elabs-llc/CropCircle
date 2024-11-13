@@ -2,13 +2,31 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Navbar from '../components/Shared/Navbar';
+import Footer from '../components/Shared/Footer';
+
+const navLinks = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/service", label: "Service" },
+  { path: "/contact", label: "Contact Us" },
+];
 
 const Home = () => {
   return (
+    
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-100">
+      <Navbar navLinks={navLinks}/>
+      
       {/* Hero Section */}
+      
+
+
+      
       <div className="py-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold text-gray-800">Welcome to CropCircle</h1>
+        <h1 className="mb-4 text-4xl font-bold text-gray-800">
+          Welcome to CropCircle
+        </h1>
         <p className="mb-8 text-lg text-gray-600">
           Connecting farmers with customers for seamless trading.
         </p>
@@ -21,9 +39,12 @@ const Home = () => {
       <div className="flex flex-col items-center gap-8 mt-12 md:flex-row">
         {/* Customer Card */}
         <div className="w-full p-6 text-center bg-white rounded-lg shadow-lg md:w-80">
-          <h2 className="mb-4 text-2xl font-semibold text-blue-500">For Customers</h2>
+          <h2 className="mb-4 text-2xl font-semibold text-blue-500">
+            For Customers
+          </h2>
           <p className="mb-6 text-gray-600">
-            Shop products directly from local farmers. Track orders, manage your cart, and more.
+            Shop products directly from local farmers. Track orders, manage your
+            cart, and more.
           </p>
           <div className="flex justify-center gap-4">
             <NavLink to="/customer/login">
@@ -41,9 +62,12 @@ const Home = () => {
 
         {/* Farmer Card */}
         <div className="w-full p-6 text-center bg-white rounded-lg shadow-lg md:w-80">
-          <h2 className="mb-4 text-2xl font-semibold text-green-500">For Farmers</h2>
+          <h2 className="mb-4 text-2xl font-semibold text-green-500">
+            For Farmers
+          </h2>
           <p className="mb-6 text-gray-600">
-            Sell your products, manage inventory, and connect with customers easily.
+            Sell your products, manage inventory, and connect with customers
+            easily.
           </p>
           <div className="flex justify-center gap-4">
             <NavLink to="/farmer/login">
@@ -59,7 +83,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+<Footer links={navLinks}></Footer>    </div>
   );
 };
 
