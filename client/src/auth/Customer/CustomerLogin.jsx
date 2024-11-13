@@ -14,7 +14,7 @@ function CustomerLoginForm({ onLogin }) {
   return (
     <div
       className="h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/src/assets/sign in img.jpg')" }}
+      style={{ backgroundImage: "url('/src/assets/signIn.jpg')" }}
     >
       <div className="h-screen w-full bg-cover bg-center flex items-center justify-start pl-60 ">
         <div className="max-w-md bg-white shadow-lg rounded-lg p-8 w-full px-4 md:px-8 lg:px-16">
@@ -75,7 +75,6 @@ function CustomerLoginForm({ onLogin }) {
               href="/customer/forgot-password"
               className=" text-center text-gray-600"
             >
-              {" "}
               forgot password?
             </a>
           </form>

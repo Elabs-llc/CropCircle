@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// Add any custom styles here if needed
 
 const CustomerSignUp = () => {
   const [formData, setFormData] = useState({
@@ -42,36 +41,25 @@ const CustomerSignUp = () => {
     e.preventDefault();
     if (validateForm()) {
       setOtpSent(true); // SIMULATE OTP SENT
-      alert("OTP sent for email verification");
-      // Implement OTP or email verification here
+      console.log("OTP sent for email verification");
     }
   };
 
+  const closeModal = () => {
+    setOtpSent(false);
+  };
+
   return (
-    <div
-      className="h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/src/assets/bg-img.jpg')" }}
-    >
-      <div className=" pr-12 flex justify-end items-center h-screen w-full bg-black bg-opacity-50">
-        <div className=" text-5xl font-extrabold text-white text-lg pl-12 md:mx-6 md:p-12 items-center justify-center">
-          <h4 className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-green-700">
-            We are more than just a company
-          </h4>
-          <p className="font-sans text-2xl font-semibold  list-none text-justify mt-6 ">
-            At CropCircle, we believe in empowering communities through
-            sustainable agriculture and fresh produce. We’re more than just a
-            company; we’re a community of farmers, food enthusiasts, and
-            innovators who are passionate about creating a greener, healthier
-            future. Join us today, and be part of a movement that values the
-            earth, nurtures growth, and brings farm-fresh food right to your
-            doorstep.
-            {/* <li>Lorem ipsum dolor sit amet consectetur</li>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Lorem ipsum dolor sit amet</li> */}
-          </p>
-        </div>
-        <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-l -3xl form-container  md:mx-6 md:p-12">
+    <div className="flex w-screen h-screen">
+      {/* Background Image Section */}
+      <div
+        className="hidden lg:block w-1/2 h-full bg-cover bg-center z-0"
+        style={{ backgroundImage: "url('/src/assets/signUp.jpg')" }}
+      ></div>
+
+      {/* Form Section */}
+      <div className="flex items-center justify-center w-full lg:w-1/2 lg:rounded-l-[80px] z-10">
+        <div className="w-full max-w-lg p-8 bg-white shadow-lg">
           <h2 className="text-2xl font-bold text-center text-green-600 mb-4">
             CUSTOMER SIGN UP!
           </h2>
@@ -82,7 +70,7 @@ const CustomerSignUp = () => {
             Join thousands of users who have already signed up
           </p>
 
-          {/* FORM SECTION */}
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -150,19 +138,6 @@ const CustomerSignUp = () => {
               )}
             </div>
 
-            {/* <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Phone Number (Optional)
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-              />
-            </div> */}
-
             <button
               type="submit"
               className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
@@ -171,17 +146,29 @@ const CustomerSignUp = () => {
             </button>
           </form>
 
-          {/* Footer Links  */}
+          {/* Footer Links */}
           <p className="mt-4 text-center text-gray-600">
             Already have an Account?{" "}
-            <a href="/customer/login" className="text-green-600 ">
+            <a href="/customer/login" className="text-green-600">
               Log In
             </a>
           </p>
 
+          {/* OTP Sent Modal */}
           {otpSent && (
-            <div className="text-center text-green-500 mt-4">
-              Please check your email to verify your account.
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <div className="bg-white p-6 rounded shadow-lg text-center">
+                <h5 className="text-green-700 font-bold">OTP Sent</h5>
+                <p className="text-green-500">
+                  Please check your email to verify your account.
+                </p>
+                <button
+                  onClick={closeModal}
+                  className="mt-4 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           )}
         </div>
