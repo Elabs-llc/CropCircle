@@ -25,7 +25,6 @@ const FarmerSignUp = () => {
         setEmailError("Please enter a valid email");
       }
     }
-    console.log(form);
   }
   function HandleSubmit(e) {
     e.preventDefault();
@@ -33,18 +32,19 @@ const FarmerSignUp = () => {
       alert("Please fill the form");
       return;
     }
-    try {
-      //const response = await post("http://localhost:8000/api/farmer/signup", form);
-      if (response.status === 200) {
-        navigate("/farmer/login");
-        return;
-      }
-      setSuccess("Account created successfully");
-      setError("");
-      setForm(formData);
-    } catch (error) {
-      setError("Something went wrong");
-    }
+    // try {
+    //   //const response = await post("http://localhost:8000/api/farmer/signup", form);
+    //   if (response.status === 200) {
+    //     navigate("/farmer/login");
+    //     return;
+    //   }
+    //   setSuccess("Account created successfully");
+    //   setError("");
+    //   setForm(formData);
+    // } catch (error) {
+    //   setError("Something went wrong");
+    // }
+    console.log(form);
   }
 
   return (
@@ -71,13 +71,14 @@ const FarmerSignUp = () => {
             type="text"
             placeholder="Full Name"
             name="name"
-            value={form.name}
             onChange={Handlechange}
+            value={form.name}
             className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
           />
           <input
             type="email"
             placeholder="Email"
+            name="email"
             value={form.email}
             onChange={Handlechange}
             className=" w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
@@ -86,6 +87,7 @@ const FarmerSignUp = () => {
             type="password"
             placeholder="Password"
             value={form.password}
+            name="password"
             onChange={Handlechange}
             className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
           />
@@ -94,6 +96,7 @@ const FarmerSignUp = () => {
             placeholder="Confirm Pasword"
             value={form.confirmPassword}
             onChange={Handlechange}
+            name="confirmPassword"
             className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
           />
           <button

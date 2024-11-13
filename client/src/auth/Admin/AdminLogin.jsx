@@ -6,11 +6,7 @@ const AdminLogin = () => {
     email: "",
     password: "",
   }
-  const dummyData = {
-    email: "admin@admin.com",
-    password: "123",
-  }
-
+  
   const [error, setError] = React.useState("");
   const [form, setForm] = React.useState(formData);
   const [emailError, setEmailError] = React.useState(""); 
@@ -31,21 +27,21 @@ const AdminLogin = () => {
       alert("Please fill the form")
       return;
     }
-    try{
-       const response = fetch("http://localhost:8000/api/admin/login", form)
-       if(response.status === 200){
-         alert("Login Successful")
-         window.location.href = "/admin/dashboard"
-         return;
-       }
-       else{
-         alert("Invalid Credentials")
-         return;
-       }
-    }
-    catch(error){
-      setError(error);
-    }
+    // try{
+    //    const response = fetch("http://localhost:8000/api/admin/login", form)
+    //    if(response.status === 200){
+    //      alert("Login Successful")
+    //      window.location.href = "/admin/dashboard"
+    //      return;
+    //    }
+    //    else{
+    //      alert("Invalid Credentials")
+    //      return;
+    //    }
+    // }
+    // catch(error){
+    //   setError(error);
+    // }
   
     console.log("Results",form);
   }
