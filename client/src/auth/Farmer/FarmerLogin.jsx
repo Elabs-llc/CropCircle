@@ -6,18 +6,16 @@ const FarmerLogin = () => {
     email: "",
     password: "",
   };
-
-  const dummyData = {
-    email: "admin@admin.com",
-    password: "123",
-  };
-
-  const [error, setError] = React.useState("");
-
   const [form, setForm] = React.useState(formData);
+  const [error, setError] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   function Handlechange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
+    if (!emailRegex.test(e.target.value)) {
+      setEmailError("Please Enter a valid email address");
+    }
   }
 
   function HandleSubmit(e) {
@@ -31,19 +29,21 @@ const FarmerLogin = () => {
       return;
     }
 
-    try{
-      //const response = await fetch("http://...", form) 
+    // try {
+    //   //const response = await fetch("http://...", form)
 
-      if(form.email === dummyData.email && form.password === dummyData.password){
-        alert("Admin Login Successful");
-        window.location.href = "/farmer/dashboard";
-      }else{
-        setError("Wrong Credentials");
-      }
-    }
-    catch(error){
-      setError("Something went wrong");
-    }
+    //   if (
+    //     form.email === dummyData.email &&
+    //     form.password === dummyData.password
+    //   ) {
+    //     alert("Admin Login Successful");
+    //     window.location.href = "/farmer/dashboard";
+    //   } else {
+    //     setError("Wrong Credentials");
+    //   }
+    // } catch (error) {
+    //   setError("Something went wrong");
+    // }
 
     console.log(form);
   }
