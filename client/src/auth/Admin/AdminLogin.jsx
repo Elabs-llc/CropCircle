@@ -12,10 +12,16 @@ const AdminLogin = () => {
   }
 
   const [error, setError] = React.useState("");
-
   const [form, setForm] = React.useState(formData);
+  const [emailError, setEmailError] = React.useState(""); 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   function HandleChange(e){
     setForm({...form,[e.target.name]:e.target.value})
+      if (!emailRegex.test(e.target.value)) {
+        setEmailError("Please Enter a valid email address");
+      }
+    
     console.log(form);
   }
 
