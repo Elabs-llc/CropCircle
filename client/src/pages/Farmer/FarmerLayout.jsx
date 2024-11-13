@@ -42,19 +42,19 @@ const FarmerLayout = ({ children }) => {
         <nav className="menu">
           <ul>
           <li className="menu-item">
-            <Link to="/overview">
+            <Link to="/farmer/overview">
                 <i className="fas fa-chart-pie"></i>
                 <span id='link'>Overview</span>
               </Link>
             </li>
             <li className="menu-item">
-            <Link to="/product">
+            <Link to="/farmer/product">
                 <i className="fas fa-box"></i>
                 <span id='link'>Products</span>
               </Link>
             </li>
             <li className="menu-item">
-            <Link to="/orders">
+            <Link to="/farmer/orders">
                 <i className="fas fa-shopping-cart"></i>
                 <span id='link'>Orders</span>
               </Link>
