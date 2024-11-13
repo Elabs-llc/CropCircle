@@ -47,13 +47,13 @@ const AdminLogin = () => {
   }
   return (
     <div
-      className="flex items-center justify-center  bg-cover min-h-screen"
+      className="flex items-center justify-center min-h-screen bg-cover"
       style={{ backgroundImage: `url(${AdminBg})` }}
     >
-      <div className="p-20 w-full max-w-lg bg-gray-300 rounded-lg shadow-lg">
-      <h1 className="font-bold text-3xl text-center text-green-600 mb-4">CROPCIRCLE</h1>
+      <div className="w-full max-w-lg p-20 bg-gray-300 rounded-lg shadow-lg">
+      <h1 className="mb-4 text-3xl font-bold text-center text-green-600">CROPCIRCLE</h1>
       <h2 className="text-xl font-semibold text-center">Welcome Back, Admin</h2>
-      <p className="text-center mb-6">Sign In to continue</p>
+      <p className="mb-6 text-center">Sign In to continue</p>
 
         <form onSubmit={HandleSubmit} action="" className="space-y-4">
           <input
@@ -61,20 +61,20 @@ const AdminLogin = () => {
             placeholder="Email"
             name="email"
             onChange={HandleChange}
-            className="w-full p-3 rounded-md border border-gray-400 focus:outline-none focus:border-green-500"
+            className="w-full p-3 border border-gray-400 rounded-md focus:outline-none focus:border-green-500"
           />
           <input
             type="password"
             placeholder="Password"
-            className="w-full p-3 rounded-md border border-gray-400 focus:outline-none focus:border-green-500"
+            className="w-full p-3 border border-gray-400 rounded-md focus:outline-none focus:border-green-500"
           />
           <button
             type="submit"
-            className="w-full py-3 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700 transition"
+            className="w-full py-3 font-semibold text-white transition bg-green-600 rounded-md hover:bg-green-700"
           >
             Sign In
           </button>
-          <p className="text-center mt-4 text-sm">
+          <p className="mt-4 text-sm text-center">
             <a href="" className="text-gray-600 hover:underline">
               Forgot Password?
             </a>
