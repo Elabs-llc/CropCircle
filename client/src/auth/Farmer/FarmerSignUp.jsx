@@ -49,31 +49,27 @@ const FarmerSignUp = () => {
 
   return (
     <div
-      className="flex justify-end h-screen bg-auto bg-no-repeat"
+      className="flex justify-center items-center md:justify-center md:items-center lg:justify-end h-screen bg-cover bg-no-repeat"
       style={{
         backgroundImage: `url(${FamerLoginBg})`,
       }}
     >
       <div
-        className="flex flex-col items-center md:w-1/2 bg-white sm:p-10 md:p-16 border border-green-400 "
-        style={{
-          borderBottomLeftRadius: "3.4rem",
-          borderTopLeftRadius: "3.4rem",
-        }}
+        className="flex w-5/6 md:w-2/3 lg:w-1/2 h-5/6 md:h-5/6 lg:h-full flex-col bg-white bg-opacity-85 md:bg-opacity-90 items-center md:items-center md:bg-white md:px-20 p-8 lg:p-16 border border-green-400 lg:rounded-tl-3xl lg:rounded-bl-3xl rounded-3xl"
       >
-        <h2 className="text-3xl font-bold sm:mt-9 text-green-700 mb-2">
+        <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold md:mt-0 lg:mt-9 text-green-700 mb-2">
           Farmer Sign Up
         </h2>
-        <h3 className="text-2xl font-semibold mb-4">Welcome to Crop Cicle</h3>
+        <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4">Welcome to Crop Cicle</h3>
         <p className="text-gray-500 mb-6">lorem ipsum</p>
-        <form onSubmit={HandleSubmit} className="space-y-4" action="">
+        <form onSubmit={HandleSubmit} className="space-y-3 md:space-y-2" action="">
           <input
             type="text"
             placeholder="Full Name"
             name="name"
             onChange={Handlechange}
             value={form.name}
-            className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
+            className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded-lg"
           />
           <input
             type="email"
@@ -81,7 +77,7 @@ const FarmerSignUp = () => {
             name="email"
             value={form.email}
             onChange={Handlechange}
-            className=" w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
+            className=" w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded-lg"
           />
           <input
             type="password"
@@ -89,7 +85,7 @@ const FarmerSignUp = () => {
             value={form.password}
             name="password"
             onChange={Handlechange}
-            className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
+            className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded-lg"
           />
           <input
             type="password"
@@ -97,11 +93,11 @@ const FarmerSignUp = () => {
             value={form.confirmPassword}
             onChange={Handlechange}
             name="confirmPassword"
-            className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded"
+            className="w-full px-4 py-3 border focus:outline-none focus:border-green-400 rounded-lg"
           />
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-4 rounded-md hover:bg-green-700"
+            className="w-full bg-green-600 text-white py-4 rounded-xl hover:bg-green-700"
           >
             Sign In
           </button>
