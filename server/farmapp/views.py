@@ -2,7 +2,7 @@ from django.db import DatabaseError
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status, views
-from server.farmapp.serializers import OrderDetailSerializer, OrderStatusUpdateSerializer
+from .serializers import OrderDetailSerializer, OrderStatusUpdateSerializer
 from .models import Farmer, Order, Product, Review, User
 
 class OrderDetailView(views.APIView):
