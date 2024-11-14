@@ -4,8 +4,10 @@ from rest_framework.response import Response
 from rest_framework import status, views
 from .serializers import OrderDetailSerializer, OrderStatusUpdateSerializer
 from .models import Farmer, Order, Product, Review, User
+from rest_framework.views import APIView
 
-class OrderDetailView(views.APIView):
+
+class OrderDetailView(APIView):
     """
     Retrieve detailed information of a specific order for a given farmer.
 
@@ -21,7 +23,7 @@ class OrderDetailView(views.APIView):
         - 200 OK: Detailed information of the order.
         - 404 Not Found: If the farmer or order is not found or not associated with the farmer.
     """
-    
+
     def get(self, request, farmerId, orderId):
         # Validate Farmer
         try:
@@ -34,17 +36,18 @@ class OrderDetailView(views.APIView):
             order = Order.objects.get(orderId=orderId)
             product_ids = [item['productId'] for item in order.orderItems]
             farmer_products = Product.objects.filter(productId__in=product_ids, farmer=farmer)
-            
+
             if not farmer_products.exists():
                 return Response({"error": "Order does not contain products from this farmer"}, status=status.HTTP_404_NOT_FOUND)
-        
         except Order.DoesNotExist:
             return Response({"error": "Order not found"}, status=status.HTTP_404_NOT_FOUND)
 
         # Serialize the order details
         serializer = OrderDetailSerializer(order)
 
+        # Return the serialized data
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
 class UpdateOrderStatusView(views.APIView):

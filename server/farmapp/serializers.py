@@ -17,7 +17,7 @@ class OrderDetailSerializer(serializers.ModelSerializer):
         - address: Address of the customer.
         - phone: Contact phone number of the customer.
     """
-    orderId = serializers.IntegerField(source='orderId')
+    orderId = serializers.IntegerField()  # Removed 'source' argument
     customerName = serializers.CharField(source='customer.name')
     productName = serializers.SerializerMethodField()
     quantity = serializers.SerializerMethodField()
@@ -46,11 +46,10 @@ class OrderDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = [
-            'orderId', 'customerName', 'productName', 'quantity', 'totalPrice',
-            'orderStatus', 'dateOrdered', 'deliveryDate', 'address', 'phone'
-        ]
-        
+        fields = ['orderId', 'customerName', 'productName', 'phone', 'orderItems', 'totalPrice', 'orderStatus', 'address', 'quantity', 'dateOrdered', 'deliveryDate']
+
+
+
 
 class OrderStatusUpdateSerializer(serializers.ModelSerializer):
     """
