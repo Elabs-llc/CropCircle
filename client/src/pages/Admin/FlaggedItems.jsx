@@ -113,6 +113,7 @@ const FlaggedItems = () => {
   };
 
   return (
+    <div className="admin-page-flagged-items">
     <div className="flagged-items-container">
       <div className="flagged-heading">
         <h2>Flagged Items</h2>
@@ -202,6 +203,7 @@ const FlaggedItems = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };
