@@ -1,7 +1,9 @@
+from django.db import DatabaseError
+from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status, views
 from server.farmapp.serializers import OrderDetailSerializer, OrderStatusUpdateSerializer
-from .models import Farmer, Order, Product, User
+from .models import Farmer, Order, Product, Review, User
 
 class OrderDetailView(views.APIView):
     """
@@ -138,3 +140,40 @@ class DeleteOrderView(views.APIView):
 
         # Return Success Response
         return Response({"message": "Order cancelled successfully"}, status=status.HTTP_200_OK)
+
+
+
+class DeleteReviewView(views.APIView):
+    """
+    Endpoint: DELETE /api/product/:productId/reviews/:reviewId
+    Allows a customer to delete their review for a specific product.
+    
+    Validations:
+        - Ensure that productId and reviewId are valid.
+        - Check that the review belongs to the customer making the request.
+    
+    Responses:
+        - 204 No Content: Review successfully deleted.
+        - 403 Forbidden: Review does not belong to the customer making the request.
+        - 404 Not Found: Product or review not found.
+        - 500 Internal Server Error: Database error during deletion.
+    """
+    
+    def delete(self, request, productId, reviewId):
+        # Validate Product and Review IDs
+        try:
+            # Check if the review exists and is associated with the specified product
+            review = get_object_or_404(Review, reviewId=reviewId, product__id=productId)
+            
+            # Check if the review belongs to the requesting user
+            if review.customer != request.user:
+                return Response({"error": "You are not authorized to delete this review."}, status=status.HTTP_403_FORBIDDEN)
+
+            # Attempt to delete the review from the database
+            review.delete()
+            return Response({"review": {}}, status=status.HTTP_204_NO_CONTENT)
+
+        except DatabaseError:
+            # Step 4: Handle potential database errors during deletion
+            return Response({"error": "An error occurred while attempting to delete the review."},
+                            status=status.HTTP_500_INTERNAL_SERVER_ERROR)

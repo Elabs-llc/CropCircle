@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import OrderDetailView, UpdateOrderStatusView, DeleteOrderView
+from .views import DeleteReviewView, OrderDetailView, UpdateOrderStatusView, DeleteOrderView
 
 urlpatterns = [
     # URL for retrieving order details
@@ -10,4 +10,7 @@ urlpatterns = [
     
     # URL for deleting an order (or marking it as cancelled, depending on logic)
     path("api/farmer/<int:farmerId>/orders/<int:orderId>/delete", DeleteOrderView.as_view(), name="delete-order"),
+
+    # URL for deleting a review
+    path("api/product/<int:productId>/reviews/<int:reviewId>", DeleteReviewView.as_view(), name="delete-review"),
 ]
