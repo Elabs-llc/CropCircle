@@ -22,7 +22,7 @@ class User(AbstractBaseUser):
     address = models.CharField(max_length=255, null=True, blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
-    last_login = models.DateTimeField(null=True, blank=True)  # Remove this if unnecessary
+    last_login = models.DateTimeField(null=True, blank=True)  
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
