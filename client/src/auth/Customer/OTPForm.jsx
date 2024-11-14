@@ -5,6 +5,7 @@ const OTPForm = ({ onVerify }) => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(30); // Timer for resend OTP
   const [isResendAllowed, setIsResendAllowed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Add a flag to prevent multiple submissions
 
   const handleOtpChange = (e, index) => {
     const value = e.target.value;
@@ -20,6 +21,8 @@ const OTPForm = ({ onVerify }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent multiple submissions
+    setIsSubmitting(true);
     const otpString = otp.join("");
     console.log("OTP Submitted:", otpString);
 
@@ -28,6 +31,7 @@ const OTPForm = ({ onVerify }) => {
     } else {
       alert("Invalid OTP. Please try again.");
     }
+    setIsSubmitting(false);
   };
 
   useEffect(() => {
@@ -73,8 +77,9 @@ const OTPForm = ({ onVerify }) => {
         <button
           type="submit"
           className="w-full py-2 mt-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          disabled={isSubmitting} // Disable the button while submitting
         >
-          Submit OTP
+          {isSubmitting ? "Submitting..." : "Submit OTP"}
         </button>
       </form>
 

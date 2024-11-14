@@ -6,7 +6,6 @@ const CustomerSignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    phone: "",
   });
   const [errors, setErrors] = useState({});
   const [otpSent, setOtpSent] = useState(false);
@@ -40,7 +39,7 @@ const CustomerSignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setOtpSent(true); // SIMULATE OTP SENT
+      setOtpSent(true);
       console.log("OTP sent for email verification");
     }
   };
@@ -50,38 +49,38 @@ const CustomerSignUp = () => {
   };
 
   return (
-    <div className="flex w-screen h-screen">
-      {/* Background Image Section */}
+    <div className="flex h-screen w-screen">
+      {/* Image Section */}
       <div
-        className="hidden lg:block w-1/2 h-full bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/src/assets/signUp.jpg')" }}
+        className="hidden lg:block w-1/2 h-full bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/signUp.jpg')",
+        }}
       ></div>
 
       {/* Form Section */}
-      <div className="flex items-center justify-center w-full lg:w-1/2 lg:rounded-l-[80px] z-10">
-        <div className="w-full max-w-lg p-8 bg-white shadow-lg">
-          <h2 className="text-2xl font-bold text-center text-green-600 mb-4">
-            CUSTOMER SIGN UP!
+      <div className="flex items-center justify-center w-full  lg:w-1/2 lg:rounded-l-[80px] z-10 shadow-lg">
+        <div className="w-full max-w-md p-10">
+          <h2 className="text-3xl font-bold text-green-600 text-center mb-4">
+            CUSTOMER SIGN UP
           </h2>
-          <p className="text-center text-lg my-2 font-semibold">
-            Welcome to CropCircle
+          <p className="text-lg font-semibold text-center mb-2">
+            Welcome to <span className="font-bold">CropCircle</span>
           </p>
-          <p className="text-center text-sm text-gray-600 mb-8">
+          <p className="text-center text-sm text-gray-600 mb-6">
             Join thousands of users who have already signed up
           </p>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Full Name
-              </label>
               <input
                 type="text"
                 name="fullName"
+                placeholder="Full name"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-500"
               />
               {errors.fullName && (
                 <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>
@@ -89,15 +88,13 @@ const CustomerSignUp = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
               <input
                 type="email"
                 name="email"
+                placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-500"
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
@@ -105,15 +102,13 @@ const CustomerSignUp = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
               <input
                 type="password"
                 name="password"
+                placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-500"
               />
               {errors.password && (
                 <p className="text-red-500 text-xs mt-1">{errors.password}</p>
@@ -121,15 +116,13 @@ const CustomerSignUp = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Confirm Password
-              </label>
               <input
                 type="password"
                 name="confirmPassword"
+                placeholder="Confirm password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                className="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-500"
               />
               {errors.confirmPassword && (
                 <p className="text-red-500 text-xs mt-1">
@@ -140,16 +133,18 @@ const CustomerSignUp = () => {
 
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+              className="w-full bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition text-lg font-semibold"
             >
               Sign Up
             </button>
           </form>
 
-          {/* Footer Links */}
           <p className="mt-4 text-center text-gray-600">
             Already have an Account?{" "}
-            <a href="/customer/login" className="text-green-600">
+            <a
+              href="/customer/login"
+              className="text-green-600 hover:underline"
+            >
               Log In
             </a>
           </p>
@@ -158,7 +153,9 @@ const CustomerSignUp = () => {
           {otpSent && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <div className="bg-white p-6 rounded shadow-lg text-center">
-                <h5 className="text-green-700 font-bold">OTP Sent</h5>
+                <h5 className="text-green-700 font-bold text-lg mb-4">
+                  OTP Sent
+                </h5>
                 <p className="text-green-500">
                   Please check your email to verify your account.
                 </p>
