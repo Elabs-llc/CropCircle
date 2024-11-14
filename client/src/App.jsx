@@ -20,6 +20,7 @@ import FarmerSignUp from './auth/Farmer/FarmerSignUp';
 import Home from './pages';
 import CustomerSignUp from './auth/Customer/CustomerSignUp';
 
+
 function App() {
   return (
     <Router>
