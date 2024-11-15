@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Overview from './pages/Farmer/Overview';
@@ -26,8 +27,8 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home />} />
 
-        <Route path='/' element={<Home />} />
 
         <Route path="/customer/login" element={<CustomerLogin />} />
         <Route path="/customer/signup" element={<CustomerSignUp />} />
@@ -59,7 +60,10 @@ function App() {
               <Routes>
                 <Route path="feedback" element={<Feedback />} />
                 <Route path="flagged-items" element={<FlaggedItems />} />
-                <Route path="verification-queue" element={<VerificationQueue />} />
+                <Route
+                  path="verification-queue"
+                  element={<VerificationQueue />}
+                />
               </Routes>
             </AdminLayout>
           }
@@ -78,7 +82,6 @@ function App() {
             </CustomerLayout>
           }
         />
-
 
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />
