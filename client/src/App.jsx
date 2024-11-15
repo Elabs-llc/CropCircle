@@ -1,31 +1,34 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NotFound from "./pages/NotFound";
-import Overview from "./pages/Farmer/Overview";
-import Orders from "./pages/Farmer/Orders";
-import Products from "./pages/Farmer/Products";
-import FarmerLayout from "./pages/Farmer/FarmerLayout";
-import AddProductForm from "./components/Farmer/AddProductForm";
-import Feedback from "./pages/Admin/Feedback";
-import FlaggedItems from "./pages/Admin/FlaggedItems";
-import VerificationQueue from "./pages/Admin/VerificationQueue";
-import AdminLayout from "./pages/Admin/AdminLayout";
-import CustomerLayout from "./pages/Customer/CustomerLayout";
-import CartPage from "./pages/Customer/CartPage";
-import OrderTracking from "./pages/Customer/OrderTracking";
-import Homepage from "./pages/Customer/Homepage";
-import CustomerLogin from "./auth/Customer/CustomerLogin";
-import AdminLogin from "./auth/Admin/AdminLogin";
-import FarmerLogin from "./auth/Farmer/FarmerLogin";
-import FarmerSignUp from "./auth/Farmer/FarmerSignUp";
-import Home from "./pages";
-import CustomerSignUp from "./auth/Customer/CustomerSignUp";
-import ProductList from "./components/Farmer/ProductList";
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NotFound from './pages/NotFound';
+import Overview from './pages/Farmer/Overview';
+import Orders from './pages/Farmer/Orders';
+import Products from './pages/Farmer/Products';
+import FarmerLayout from './pages/Farmer/FarmerLayout';
+import AddProductForm from './components/Farmer/AddProductForm';
+import Feedback from './pages/Admin/Feedback';
+import FlaggedItems from './pages/Admin/FlaggedItems';
+import VerificationQueue from './pages/Admin/VerificationQueue';
+import AdminLayout from './pages/Admin/AdminLayout';
+import CustomerLayout from './pages/Customer/CustomerLayout';
+import CartPage from './pages/Customer/CartPage';
+import OrderTracking from './pages/Customer/OrderTracking';
+import Homepage from './pages/Customer/Homepage';
+import CustomerLogin from './auth/Customer/CustomerLogin';
+import AdminLogin from './auth/Admin/AdminLogin';
+import FarmerLogin from './auth/Farmer/FarmerLogin';
+import FarmerSignUp from './auth/Farmer/FarmerSignUp';
+import Home from './pages';
+import CustomerSignUp from './auth/Customer/CustomerSignUp';
+import ProductList from './components/Farmer/ProductList';
+
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+
 
         <Route path="/customer/login" element={<CustomerLogin />} />
         <Route path="/customer/signup" element={<CustomerSignUp />} />
@@ -36,6 +39,7 @@ function App() {
         <Route path="/farmer/signup" element={<FarmerSignUp />} />
 
         <Route
+
           path="/farmer/*"
           element={
             <FarmerLayout>
@@ -46,6 +50,7 @@ function App() {
               </Routes>
             </FarmerLayout>
           }
+
         />
 
         <Route
@@ -72,6 +77,7 @@ function App() {
                 <Route path="homepage" element={<Homepage />} />
                 <Route path="cartitems" element={<CartPage />} />
                 <Route path="orders" element={<OrderTracking />} />
+
               </Routes>
             </CustomerLayout>
           }
