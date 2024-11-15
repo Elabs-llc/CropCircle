@@ -4,11 +4,11 @@ import {PropTypes} from 'prop-types';
 import './Footer.css';
 
 
-const Footer = ({ links }) => {
+const Footer = ({ links, bgcolor }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className="footer" style={{ backgroundColor: bgcolor }}>
       <p>&copy; {currentYear} CropCircle All rights reserved</p>
       <div className="footer-contact">
         <h4>Contact Us</h4>
@@ -51,6 +51,7 @@ Footer.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
+  bgcolor: PropTypes.string,
 };
 
 export default Footer;

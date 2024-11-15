@@ -16,7 +16,7 @@ const Home = () => {
   return (
     
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-100">
-      <Navbar navLinks={navLinks}/>
+      <Navbar navLinks={navLinks} bgcolor={'white'}/>
       
       {/* Hero Section */}
       
@@ -83,7 +83,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-<Footer links={navLinks}></Footer>    </div>
+<Footer links={navLinks} bgcolor={'white'}></Footer>    </div>
   );
 };
 

@@ -3,22 +3,19 @@ import { NavLink } from "react-router-dom";
 import './Navbar.css';
 import PropTypes from "prop-types";
 import { useState } from "react";
-import './Navbar.css';
-import menu from '../../assets/menu.svg';
+import "./Navbar.css";
+import menu from "../../assets/menu.svg";
 
-const Navbar = ({ navLinks }) => {
-
-const [isOpen, setIsOpen] = useState(false);
-
-const toggleMenu = () => {
-    setIsOpen(!isOpen); 
+const Navbar = ({ navLinks, bgcolor }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <header>
+    <header style={{ backgroundColor: bgcolor }}>
       <img src={menu} alt className="menu" onClick={toggleMenu}></img>
       <div className="logo">CropCircle</div>
-
       <nav className={`nav ${isOpen ? "active" : ""}`}>
         <ul>
           {navLinks.map((link, index) => (
@@ -32,7 +29,6 @@ const toggleMenu = () => {
   );
 };
 
-
 Navbar.propTypes = {
   navLinks: PropTypes.arrayOf(
     PropTypes.shape({
@@ -40,7 +36,8 @@ Navbar.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
+  bgcolor: PropTypes.string,
 };
 
+export default Navbar;
 
-export default Navbar
