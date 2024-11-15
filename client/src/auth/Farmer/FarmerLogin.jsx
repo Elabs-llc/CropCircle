@@ -64,7 +64,6 @@ const FarmerLogin = () => {
     // }
 
     console.log(form);
-    navigate('/farmer/overview')
   }
   return (
     <div
