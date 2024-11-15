@@ -50,7 +50,7 @@ const products = [
     },
     {
         image: Cucumber2,
-        name: " Local Cucumber",
+        name: "Cucumber",
         price: 50,
         quantity: "4 pieces per bag",
         description: "Our Local Cucumber are grown in local farms, contains alot of nutrients and tastes great.",
