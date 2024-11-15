@@ -13,15 +13,15 @@ function CustomerLoginForm({ onLogin }) {
 
   return (
     <div
-      className="h-screen flex items-center justify-center bg-cover bg-center"
+      className="flex items-center justify-center h-screen bg-center bg-cover"
       style={{ backgroundImage: "url('/src/assets/signIn.jpg')" }}
     >
-      <div className="h-screen w-full bg-cover bg-center flex items-center justify-start pl-60 ">
-        <div className="max-w-md bg-white shadow-lg rounded-lg p-8 w-full px-4 md:px-8 lg:px-16">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
+      <div className="flex items-center justify-start w-full h-screen bg-center bg-cover pl-60 ">
+        <div className="w-full max-w-md p-8 px-4 bg-white rounded-lg shadow-lg md:px-8 lg:px-16">
+          <h2 className="mb-6 text-2xl font-semibold text-center">
             Customer Login
           </h2>
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+          {error && <p className="mb-4 text-sm text-red-500">{error}</p>}
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label
@@ -33,7 +33,7 @@ function CustomerLoginForm({ onLogin }) {
               <input
                 type="email"
                 id="email"
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +50,7 @@ function CustomerLoginForm({ onLogin }) {
               <input
                 type="password"
                 id="password"
-                className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -59,7 +59,7 @@ function CustomerLoginForm({ onLogin }) {
             </div>
 
             {/* Footer Links  */}
-            <p className="mt-4 justify-end text-center text-gray-600">
+            <p className="justify-end mt-4 text-center text-gray-600">
               New to CropCirle?{" "}
               <a href="/customer/SignUp" className="text-green-600 ">
                 Sign Up
@@ -67,13 +67,13 @@ function CustomerLoginForm({ onLogin }) {
             </p>
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-green-600 text-white rounded-md font-semibold hover:bg-green-700 transition duration-150 ease-in-out"
+              className="w-full px-4 py-2 font-semibold text-white transition duration-150 ease-in-out bg-green-600 rounded-md hover:bg-green-700"
             >
               Login
             </button>
             <a
               href="/customer/forgot-password"
-              className=" text-center text-gray-600"
+              className="text-center text-gray-600 "
             >
               forgot password?
             </a>
