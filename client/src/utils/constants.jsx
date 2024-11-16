@@ -11,7 +11,7 @@ import Onion from "../assets/images/Onion.jpg"
 import Carrot from "../assets/images/Carrot.jpg"
 import ripeplantain from "../assets/images/ripeplantain.jpg"
 import okro from "../assets/images/okro.jpg"
-import Pepper from "../assets/images/Pepper.jpg"
+import PepperImage from "../assets/images/pepper.jpg"
 import Pepper1 from "../assets/images/Pepper1.webp"
 import greengrapes from "../assets/images/greengrapes.webp"
 import greenpepper from "../assets/images/greenpepper.webp"
@@ -141,7 +141,7 @@ const products = [
     },
   
     {
-        image: Pepper,
+        image: PepperImage,
         name: "Bell-Pepper",
         price: 70,
         quantity: "6 pieces per bag",
