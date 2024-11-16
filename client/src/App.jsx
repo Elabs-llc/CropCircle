@@ -5,7 +5,6 @@ import Overview from './pages/Farmer/Overview';
 import Orders from './pages/Farmer/Orders';
 import Products from './pages/Farmer/Products';
 import FarmerLayout from './pages/Farmer/FarmerLayout';
-import AddProductForm from './components/Farmer/AddProductForm';
 import Feedback from './pages/Admin/Feedback';
 import FlaggedItems from './pages/Admin/FlaggedItems';
 import VerificationQueue from './pages/Admin/VerificationQueue';
@@ -20,7 +19,8 @@ import FarmerLogin from './auth/Farmer/FarmerLogin';
 import FarmerSignUp from './auth/Farmer/FarmerSignUp';
 import Home from './pages';
 import CustomerSignUp from './auth/Customer/CustomerSignUp';
-import ProductList from './components/Farmer/ProductList';
+import UnderDevelopment from './pages/UnderDevelopment';
+import PolicyAgreement from './pages/Policy';
 
 
 
@@ -29,6 +29,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<UnderDevelopment />} />
+        <Route path="/service" element={<UnderDevelopment />} />
+        <Route path="/contact" element={<UnderDevelopment />} />
+        <Route path="/privacy-policy" element={<PolicyAgreement />} />
 
 
         <Route path="/customer/login" element={<CustomerLogin />} />

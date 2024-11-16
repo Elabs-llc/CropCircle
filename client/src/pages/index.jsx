@@ -21,20 +21,19 @@ const navLinks = [
 const HomePage = () => {
   return (
 
-    
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-100">
-      <Navbar navLinks={navLinks} bgcolor={'white'}/>
-      
+
+    <div>
+      <Navbar navLinks={navLinks} bgcolor="#000" />
+
       <>
-    <HeroSection />
-    <FarmersSection />
-    <BuyersSection />
+        <HeroSection />
+        <FarmersSection />
+        <BuyersSection />
 
 
-    </>
-    
-<Footer links={navLinks} bgcolor={'white'}></Footer>    
-</div>
+      </>
+      <Footer links={navLinks} bgcolor="#2d3748"></Footer>
+    </div>
   );
 };
 

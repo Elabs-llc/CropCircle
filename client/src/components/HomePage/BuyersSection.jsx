@@ -8,11 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ImageSection = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-4">
+    <div className="w-full max-w-sm p-4">
       <img
         src={img3}
         alt="Produce"
-        className="object-cover h-full w-full rounded-lg shadow-lg"
+        className="object-cover w-full h-auto rounded-lg shadow-lg"
       />
     </div>
   );
@@ -20,11 +20,11 @@ const ImageSection = () => {
 
 const TextSection = () => {
   return (
-    <div className="w-full px-4 md:px-8 flex flex-col justify-center items-center text-center md:text-left">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-green-800">
+    <div className="flex flex-col items-center justify-center w-full px-4 text-center md:px-8 md:text-left">
+      <h1 className="mb-4 text-3xl font-bold text-green-800 md:text-4xl">
         For Buyers
       </h1>
-      <p className="text-xl md:text-3xl text-gray-700 mb-6 leading-relaxed">
+      <p className="mb-6 text-sm leading-relaxed text-gray-700 md:text-lg">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -33,7 +33,7 @@ const TextSection = () => {
       </p>
       <NavLink
         to="/customer/login"
-        className="bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 text-lg md:text-xl transition duration-300"
+        className="px-6 py-2 text-sm font-bold text-white transition duration-300 bg-green-600 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 md:text-base"
       >
         Start Here
       </NavLink>
@@ -81,11 +81,11 @@ const BuyersSection = () => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center w-full min-h-screen bg-gray-50">
+    <div className="flex flex-col items-center justify-between w-full min-h-screen px-4 py-8 md:flex-row md:px-8 bg-gray-50">
       {/* Text Section */}
       <div
         ref={textRef}
-        className="flex justify-center w-full md:w-1/2 h-auto"
+        className="flex justify-center w-full md:w-1/2"
       >
         <TextSection />
       </div>
@@ -93,7 +93,7 @@ const BuyersSection = () => {
       {/* Image Section */}
       <div
         ref={imageRef}
-        className="flex justify-center w-full md:w-1/2 h-auto"
+        className="flex justify-center w-full md:w-1/2"
       >
         <ImageSection />
       </div>

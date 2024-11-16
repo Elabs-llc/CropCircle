@@ -8,11 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ImageSection = () => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-auto max-w-md p-4">
       <img
         src={img2}
         alt="Farmers"
-        className="object-cover h-full w-full rounded-lg shadow-lg"
+        className="object-cover w-full h-auto rounded-lg shadow-lg"
       />
     </div>
   );
@@ -20,22 +20,20 @@ const ImageSection = () => {
 
 const TextSection = () => {
   return (
-    <div className="w-full p-6 md:p-12 flex flex-col justify-center items-center text-center max-h-full overflow-auto">
-      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-green-700">
+    <div className="flex flex-col items-center justify-center w-full p-6 text-center md:p-8">
+      <h1 className="mb-4 text-2xl font-bold text-green-700 md:text-4xl">
         For Farmers
       </h1>
-      <p className="text-xl md:text-3xl text-gray-700 mb-6 leading-relaxed">
+      <p className="mb-6 text-sm leading-relaxed text-gray-700 md:text-lg">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <NavLink
         to="/farmer/login"
-        className="bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 text-lg md:text-xl transition duration-300"
+        className="px-6 py-2 text-sm font-bold text-white transition duration-300 bg-green-600 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 md:text-base"
       >
         Start Here
       </NavLink>
@@ -56,11 +54,11 @@ const FarmersSection = () => {
         x: 0,
         opacity: 1,
         duration: 1.5,
-        ease: "power3.out",
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: imageWrapperRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
+          start: 'top 80%',
+          toggleActions: 'play none none none',
         },
       }
     );
@@ -73,22 +71,25 @@ const FarmersSection = () => {
         x: 0,
         opacity: 1,
         duration: 1.5,
-        ease: "power3.out",
+        ease: 'power3.out',
         scrollTrigger: {
           trigger: textWrapperRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
+          start: 'top 80%',
+          toggleActions: 'play none none none',
         },
       }
     );
   }, []);
 
   return (
-    <div id='FarmersSection' className="flex flex-col md:flex-row justify-center items-center w-screen h-auto md:h-screen px-4 md:px-0">
+    <div
+      id="FarmersSection"
+      className="flex flex-col items-center justify-center w-full h-auto px-4 py-8 md:flex-row md:h-screen md:px-8"
+    >
       {/* Image Section */}
       <div
         ref={imageWrapperRef}
-        className="w-full md:w-1/2 h-full flex items-center justify-center mb-8 md:mb-0"
+        className="flex items-center justify-center w-full mb-6 md:w-1/2 md:mb-0"
       >
         <ImageSection />
       </div>
@@ -96,7 +97,7 @@ const FarmersSection = () => {
       {/* Text Section */}
       <div
         ref={textWrapperRef}
-        className="w-full md:w-1/2 h-full flex items-center justify-center"
+        className="flex items-center justify-center w-full md:w-1/2"
       >
         <TextSection />
       </div>
