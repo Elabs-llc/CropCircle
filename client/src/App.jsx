@@ -23,7 +23,6 @@ import UnderDevelopment from './pages/UnderDevelopment';
 import PolicyAgreement from './pages/Policy';
 
 
-
 function App() {
   return (
     <Router>
